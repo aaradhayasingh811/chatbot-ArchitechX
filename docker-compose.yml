@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  vastu-backend:
+    build: .
+    ports:
+      - "3006:3006"
+    environment:
+      - PORT=3006
+      - GEMINI_API_KEY=${GEMINI_API_KEY}
+    volumes:
+      - .:/app
+    restart: unless-stopped
