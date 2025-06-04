@@ -33,7 +33,7 @@ Format responses with:
 `;
 
 // Chat endpoint
-app.post('/api/chat', async (req, res) => {
+app.post('/api/v1/chat', async (req, res) => {
   try {
     const { message, chatHistory } = req.body;
     
@@ -89,6 +89,10 @@ app.get('/api/v1/test', async (req, res) => {
     res.status(500).json({ error: error.message });
   }
 });
+
+app.get("/health",(req,res)=>{
+  res.status(200).json({ status: "OK" });
+})
 
 // Start server
 app.listen(port, () => {
